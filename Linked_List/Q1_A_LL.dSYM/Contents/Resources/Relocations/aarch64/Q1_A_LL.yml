@@ -1,0 +1,13 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/taeju/Data-Structures/Linked_List/Q1_A_LL'
+relocations:
+  - { offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003724, symSize: 0x194 }
+  - { offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003724, symSize: 0x194 }
+  - { offset: 0x93, size: 0x8, addend: 0x0, symName: _insertSortedLL, symObjAddr: 0x1A4, symBinAddr: 0x1000038C8, symSize: 0x18 }
+  - { offset: 0xC9, size: 0x8, addend: 0x0, symName: _printList, symObjAddr: 0x1BC, symBinAddr: 0x1000038E0, symSize: 0xBC }
+  - { offset: 0xFB, size: 0x8, addend: 0x0, symName: _removeAllItems, symObjAddr: 0x278, symBinAddr: 0x10000399C, symSize: 0x70 }
+  - { offset: 0x13B, size: 0x8, addend: 0x0, symName: _findNode, symObjAddr: 0x2E8, symBinAddr: 0x100003A0C, symSize: 0xFC }
+  - { offset: 0x17F, size: 0x8, addend: 0x0, symName: _insertNode, symObjAddr: 0x3E4, symBinAddr: 0x100003B08, symSize: 0x184 }
+  - { offset: 0x1DF, size: 0x8, addend: 0x0, symName: _removeNode, symObjAddr: 0x568, symBinAddr: 0x100003C8C, symSize: 0x15C }
+...
