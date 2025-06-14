@@ -103,7 +103,30 @@ int main()
 
 void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 {
-    /* add your code here */
+	ListNode *cur1 = ll1->head;
+	ListNode *cur2 = ll2->head;
+	int index1 = 1;
+	int index2 = 0;
+	// ll이 없거나, 비어있으면 return 해버림
+	if (ll1 == NULL || ll2 == NULL) return;
+	if (cur1 == NULL || cur2 == NULL) return;
+
+	// ll2를 순회하면서, 아이템을 저장한다
+	while (cur2 != NULL) {
+		if (index1 <= ll1->size) {
+			int ll2_item = cur2->item;
+			insertNode(ll1, index1++, ll2_item);
+			removeNode(ll2, index2++);
+		}
+	}
+
+	printList(ll1);
+	printList(ll2);
+	// 구현 방법
+	// 1. ll2를 순회하면서 각각의 노드 아이템을 저장한다
+	// 2. insertnode로 각각의 인덱스에 새 노드를 삽입한다 삽입 시, ll2의 노드는 remove한다 삽입 index는 2씩 증가하고, 제거 index는 1씩 증가
+	// 3. ll1 & ll2 각각 출력하기 비어있으면 empty 출력하기
+	// 1 2 3 , 4 5 6 7 있으면, 1 4 2 5 3 6과 같이 중간중간 삽입됨
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -142,7 +165,7 @@ void removeAllItems(LinkedList *ll)
 
 
 ListNode *findNode(LinkedList *ll, int index){
-
+	// 
 	ListNode *temp;
 
 	if (ll == NULL || index < 0 || index >= ll->size)
