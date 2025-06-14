@@ -80,8 +80,6 @@ int main()
 			printf("Choice unknown;\n");
 			break;
 		}
-
-
 	}
 	return 0;
 }
@@ -90,10 +88,25 @@ int main()
 
 int insertSortedLL(LinkedList *ll, int item)
 {
-	/* add your code here */
-	printf("%d", 1);
-	
-	return 0;
+	ListNode *cur = ll->head;
+	int index = 0;
+
+	// 만약 리스트가 존재하면
+	while (cur != NULL){
+		// 다음 아이템이 입력 아이템보다 크고, 현재 아이템이 입력 아이템보다 작거나 같다면, insertNode
+		if (cur->item > item)
+		{
+			break;
+		}
+		else if (cur->item == item)
+		{
+			return -1;
+		}
+		cur = cur->next;
+		++index;
+	}
+	insertNode(ll, index, item);
+	return index;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -103,6 +116,7 @@ void printList(LinkedList *ll){
 	ListNode *cur;
 	if (ll == NULL)
 		return;
+
 	cur = ll->head;
 
 	if (cur == NULL)
@@ -169,7 +183,6 @@ int insertNode(LinkedList *ll, int index, int value){
 		ll->size++;
 		return 0;
 	}
-
 
 	// Find the nodes before and at the target position
 	// Create a new node and reconnect the links
