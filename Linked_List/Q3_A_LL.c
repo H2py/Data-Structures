@@ -39,6 +39,7 @@ int removeNode(LinkedList *ll, int index);
 
 int main()
 {
+	freopen("input.txt", "r", stdin);
 	LinkedList ll;
 	int c, i, j;
 	c = 1;
@@ -83,10 +84,26 @@ int main()
 }
 
 //////////////////////////////////////////////////////////////////////////////////
-
 void moveOddItemsToBack(LinkedList *ll)
 {
-	/* add your code here */
+    if (ll == NULL || ll->head == NULL) return;
+
+	int index = 0;
+	int len = ll->size;
+
+	while(index < len)
+	{
+		ListNode* cur = findNode(ll, index);
+		if (cur->item % 2 != 0)
+		{
+			insertNode(ll, ll->size, cur->item);
+			removeNode(ll, index);
+			len--;
+		} else
+		{
+			index++;
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -125,7 +142,6 @@ void removeAllItems(LinkedList *ll)
 
 
 ListNode *findNode(LinkedList *ll, int index){
-
 	ListNode *temp;
 
 	if (ll == NULL || index < 0 || index >= ll->size)
