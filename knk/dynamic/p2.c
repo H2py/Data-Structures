@@ -1,26 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-int main(int argc, char **argv) {
-    int i;
-    int x, y;
-    int **arr;
+#define MAX_REMIND 50
+#define MSG_LEN 60
 
-    printf("arr[x][y]를 만들겁니다.\n");
-    scanf("%d %d", &x, &y);
+int read_line(char str [], int n);
 
-    arr = (int**)malloc(sizeof(int *) *x);
+char *concat(const char *s1, const char *s2)
+{
+    char* result = malloc(strlen(s1) + strlen(s2) + 1);
 
-    for (i = 0; i < x; i++) {
-        arr[i] = (int *)malloc(sizeof(int) * y);
+    if (result == NULL)
+    {
+        printf("Error malloc failed in concat\n");
+        exit(EXIT_FAILURE);
     }
+    strcpy(result, s1);
+    strcpy(result, s2);
+    return result;
+}
 
-    printf("Succeed to create! \n");
+struct point {int x; int y;} *p;
+p = calloc(1, sizeof(struct point));
 
-    for (i = 0; i < x; i++) {
-        free(arr[i]);
-    }
-    free(arr);
-
-    return 0;
+int main()
+{
+    
 }
