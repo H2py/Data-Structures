@@ -117,13 +117,11 @@ int main()
 void createQueueFromLinkedList(LinkedList *ll, Queue *q)
 {
 	ListNode *cur = ll->head;
-	int item;
 	if (ll == NULL || ll->head == NULL) return;
 
 	while(cur != NULL)
 	{
-		item = cur->item;
-		enqueue(q, item);
+		enqueue(q, cur->item);
 		cur = cur->next;
 	}
 }
