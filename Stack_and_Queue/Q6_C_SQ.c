@@ -111,7 +111,15 @@ int main()
 
 void removeUntil(Stack *s, int value)
 {
-/* add your code here */
+	if(s->ll.head == NULL) return;
+
+	ListNode *cur = s->ll.head;
+
+	while(cur->item != value) {
+		if (s->ll.size == 0) return;
+		cur = cur->next;
+		pop(s);
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -195,7 +203,6 @@ void printList(LinkedList *ll){
 }
 
 ListNode * findNode(LinkedList *ll, int index){
-
 	ListNode *temp;
 
 	if (ll == NULL || index < 0 || index >= ll->size)
