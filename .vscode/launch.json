@@ -7,7 +7,7 @@
       "request": "launch",
       "program": "${fileDirname}/${fileBasenameNoExtension}",
       "args": [],
-      "cwd": "${workspaceFolder}/Linked_list",
+      "cwd": "${workspaceFolder}",
       "stopOnEntry": false
     }
   ]
