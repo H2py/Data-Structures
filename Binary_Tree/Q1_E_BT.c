@@ -122,7 +122,10 @@ int identical(BTNode *tree1, BTNode *tree2)
     if(tree1 == NULL || tree2 == NULL) return 0;
 
     // tree1 item == tree2 item이고, 이후로도 동일하다면 return 1
-    return (tree1->item == tree2->item && identical(tree1->left, tree2->left) && identical(tree1->right, tree2->right));
+    if(tree1->item == tree2->item && identical(tree1->left, tree2->left) && identical(tree1->right, tree2->right))
+    {
+        return 1;
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////

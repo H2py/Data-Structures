@@ -121,7 +121,41 @@ void postOrderIterativeS2(BSTNode *root)
    deletes the key and returns the new root. Make recursive function. */
 BSTNode* removeNodeFromTree(BSTNode *root, int value)
 {
-	// new root를 return하라는 것이 무슨 의미일까
+	if(root == NULL) return NULL;
+
+	if (root->item < value)
+		root->right = removeNodeFromTree(root->right, value);
+	else if (root->item > value)
+		root->left = removeNodeFromTree(root->left, value); 
+	else 
+	{
+		if (root->left == NULL && root->right == NULL) 
+		{
+			free(root);
+			return NULL;
+		}
+		else if (root->right == NULL) 
+		{
+			BSTNode* temp = root->left;
+			free(root);
+			return temp;
+		}
+		else if (root->left == NULL) 
+		{
+			BSTNode* temp = root->right;
+			free(root);
+			return temp;
+		}
+		else 
+		{
+			BSTNode* temp = root->right;
+			while(temp->left != NULL)
+				temp = temp->left;
+			root->item = temp->item;
+			root->right = removeNodeFromTree(root->right, temp->item);
+		}
+	}
+	return root;
 }
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -225,3 +259,4 @@ void removeAll(BSTNode **node)
 		*node = NULL;
 	}
 }
+

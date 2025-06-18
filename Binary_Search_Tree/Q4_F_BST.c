@@ -103,7 +103,7 @@ void postOrderIterativeS1(BSTNode *root)
 		{
 			push(&s, cur);
 			cur = cur->left;
-		}	
+		}
 
 		cur = pop(&s);
 		printf("%d ", cur->item);
