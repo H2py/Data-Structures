@@ -91,7 +91,16 @@ int main()
 
 void postOrderIterativeS1(BSTNode *root)
 {
-	 /* add your code here */
+	Stack s;
+	s.top = NULL;
+
+	if(root == NULL) return;
+	BSTNode* cur = root;
+	BSTNode* visit = NULL;
+	 
+	push(&s, cur);
+
+	
 }
 
 ///////////////////////////////////////////////////////////////////////////////
