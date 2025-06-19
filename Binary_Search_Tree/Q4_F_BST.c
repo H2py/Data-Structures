@@ -96,19 +96,25 @@ void postOrderIterativeS1(BSTNode *root)
 
 	if(root == NULL) return;
 	BSTNode* cur = root;
+	BSTNode* prev = NULL;
+	push(&s, cur);
 	 
-	while(!isEmpty(&s) || cur != NULL)
+	while(!isEmpty(&s))
 	{
-		while(cur != NULL)
-		{
-			push(&s, cur);
-			cur = cur->left;
-		}
-
 		cur = pop(&s);
-		printf("%d ", cur->item);
-
-		cur = cur->right;
+		if (cur->left != NULL && prev != NULL)
+		{
+			cur = cur->left;
+			push(&s, cur);
+		} else if (cur->right != NULL & prev != NULL)
+		{
+			cur = cur->right;
+			push(&s, cur);
+		} else
+		{
+			printf("%d", cur->item);
+			prev = pop(&s);
+		}
 	}
 }
 
